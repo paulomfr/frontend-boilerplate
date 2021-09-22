@@ -1,5 +1,15 @@
 {
-  "name": "frontend-challenge",
+  "name": "frontend-boilerplate",
+  "description": "A modern Front-end boilerplate which uses the Webpack module bundler.",
+  "author": {
+    "name": "Paulo Ferreira",
+    "email": "paulo.mateus.f@gmail.com",
+    "url": "https://github.com/paulomfr"
+  },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/paulomfr/frontend-boilerplate"
+  },
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
