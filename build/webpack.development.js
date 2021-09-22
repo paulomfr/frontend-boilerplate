@@ -4,6 +4,7 @@
  * 
  */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
@@ -12,7 +13,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
  * Internal dependencies.
  * 
  */
-const { srcPath, tests } = require('./lib/utils');
+const { srcPath, rootPath, tests } = require('./lib/utils');
 const postcss = require('./postcss');
 
 /**
@@ -40,6 +41,9 @@ const plugins = [
     title: 'Fuerza Studio',
     template: srcPath('index.html'),
     filename: 'index.html'
+  }),
+  new StylelintPlugin({
+    configFile: rootPath('.stylelintrc.json')
   }),
   new MiniCssExtractPlugin({
     filename: 'styles.css'

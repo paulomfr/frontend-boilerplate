@@ -20,6 +20,9 @@ Create the `dist` folder with all builded files.
 #### `yarn serve`
 After builded you can serve using the `http-server` packages, by default the port will be `8080`.
 
+#### `yarn lint`
+Run lint for JavaScript and SASS.
+
 _More commands is comming_
 
 ## Features
