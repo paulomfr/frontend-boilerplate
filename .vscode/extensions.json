@@ -1,5 +1,7 @@
 {
   "recommendations": [
-    "stylelint.vscode-stylelint"
+    // Linters
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
   ]
 }
