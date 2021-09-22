@@ -7,7 +7,7 @@
     "url": "https://github.com/paulomfr"
   },
   "repository": {
-    "type": "github",
+    "type": "git",
     "url": "https://github.com/paulomfr/frontend-boilerplate"
   },
   "version": "1.0.0",
