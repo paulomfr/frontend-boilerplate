@@ -7,6 +7,5 @@ export default class Example {
   // eslint-disable-next-line class-methods-use-this
   bootstrap() {
     // The code here is only executed when the selector is present on the page.
-    console.log('Example started.');
   }
 }

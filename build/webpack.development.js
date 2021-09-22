@@ -3,10 +3,11 @@
  * External dependencies.
  * 
  */
+const EslintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 /**
  * 
@@ -17,67 +18,68 @@ const { srcPath, rootPath, tests } = require('./lib/utils');
 const postcss = require('./postcss');
 
 /**
- * 
+ *
  * Setup Babel loader.
- * 
+ *
  */
 const babelLoader = {
   loader: 'babel-loader',
   options: {
     cacheDirectory: true,
     comments: false,
-    presets: ['@babel/preset-env']
-  }
+    presets: ['@babel/preset-env'],
+  },
 };
 
 /**
- * 
+ *
  * Webpack Configuration.
- * 
+ *
  */
 const plugins = [
   new CleanWebpackPlugin(),
   new HtmlWebpackPlugin({
     title: 'Fuerza Studio',
     template: srcPath('index.html'),
-    filename: 'index.html'
+    filename: 'index.html',
   }),
+  new EslintPlugin(),
   new StylelintPlugin({
-    configFile: rootPath('.stylelintrc.json')
+    configFile: rootPath('.stylelintrc.json'),
   }),
   new MiniCssExtractPlugin({
-    filename: 'styles.css'
-  })
+    filename: 'styles.css',
+  }),
 ];
 
 module.exports = {
   /**
-   * 
+   *
    * The input.
-   * 
+   *
    */
   entry: require('./webpack/entry'),
 
   /**
-   * 
+   *
    * The output.
-   * 
+   *
    */
   output: {
     ...require('./webpack/output')
   },
 
   /**
-   * 
+   *
    * Resolve utilities.
-   * 
+   *
    */
   resolve: require('./webpack/resolve'),
 
   /**
-   * 
+   *
    * Setup the transformations.
-   * 
+   *
    */
   module: {
     rules: [
@@ -109,15 +111,15 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
             options: {
               publicPath: srcPath(),
-            }
+            },
           },
           'css-loader',
           {
             loader: 'postcss-loader',
-            options: postcss
+            options: postcss,
           },
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       },
 
       /**
@@ -139,7 +141,7 @@ module.exports = {
       /**
        * Handle fonts.
        */
-       {
+      {
         test: tests.fonts,
         use: [
           {
@@ -151,7 +153,7 @@ module.exports = {
           },
         ],
       },
-    ]
+    ],
   },
 
   /**
@@ -177,6 +179,6 @@ module.exports = {
         warnings: false,
       },
     },
-    watchFiles: [srcPath('index.html')]
-  }
+    watchFiles: [srcPath('index.html')],
+  },
 };
